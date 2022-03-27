@@ -20,6 +20,9 @@ export default function OrderSummary({
   const handleCheckout = () => {
     navigate("/dashboard/checkout");
   };
+  const handleShowTables = () => {
+    navigate("/dashboard/tables")
+  }
 
   useEffect(() => {
     let subtotal = 0;
@@ -47,7 +50,7 @@ export default function OrderSummary({
           <p className="font-semibold">Order:</p>
           <input className="border-b w-1/3 mx-2" />
           <p className="font-semibold">Table:</p>
-          <input className="border-b w-1/3 mx-2" />
+          <input onClick={handleShowTables} className="border-b w-1/3 mx-2" />
         </div>
         <div className="flex-1 bg-gray-100 overflow-y-auto">
           {orders.map((order, index) => (

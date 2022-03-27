@@ -18,11 +18,10 @@ export default function OrderItem({
         </div>
       </div>
       <div className="flex justify-end">
-        <div className="w-1/3 items-center mr-2">
-          <TextField
-            fullWidth
-            size="small"
-            className="bg-white"
+        <div className="w-1/3 flex items-center mr-2">
+          <input
+            readOnly
+            className="bg-white w-12"
             onFocus={() => {
               setEditIndex({ i: index, id: `${order.id}-input-id` });
               navigate("/dashboard/keypad");
