@@ -8,7 +8,7 @@ export default function CheckoutKeypad() {
     navigate();
   };
   const handleCancel = () => {
-    navigate("/dashboard/categories");
+    navigate("/dashboard/items");
   };
   return (
     <div className="flex justify-center items-center h-full">
@@ -26,7 +26,7 @@ export default function CheckoutKeypad() {
           <button className="border border-blue-100 px-8 py-4 text-4xl">
             3
           </button>
-          <button utton className="border border-blue-100 px-8 py-4 text-4xl">
+          <button className="border border-blue-100 px-8 py-4 text-4xl">
             4
           </button>
           <button className="border border-blue-100 px-8 py-4 text-4xl">

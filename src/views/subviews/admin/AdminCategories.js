@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Category from "../../components/Category";
+import axios from "axios";
+import Category from "../../../components/Category";
 
-export default function Categories({ setTabs, setCategory }) {
+export default function AdminCategories({ setTabs, setCategory }) {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     axios.get("/api/categories").then((res) => {
@@ -22,7 +22,7 @@ export default function Categories({ setTabs, setCategory }) {
 
   return (
     <div className="flex flex-col pt-5 px-5">
-      <div className="flex-auto grid grid-cols-5 gap-2">
+      <div className="flex-auto grid grid-cols-6 gap-2">
         {categories.map((category) => (
           <Category
             handleClick={handleClick}

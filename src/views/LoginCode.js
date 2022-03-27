@@ -1,4 +1,4 @@
-import { TextField, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import LoginKeypad from "./subviews/LoginKeypad";
@@ -6,7 +6,7 @@ import LoginKeypad from "./subviews/LoginKeypad";
 export default function LoginCode() {
   const navigate = useNavigate();
   const handleLogin = () => {
-    navigate("/dashboard/categories");
+    navigate("/dashboard/items");
   };
   return (
     <div className="bg-blue-500 flex justify-center items-center w-full h-full">

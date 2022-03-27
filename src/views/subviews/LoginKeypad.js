@@ -9,40 +9,43 @@ export default function LoginKeypad() {
           <TextField fullWidth />
         </div>
         <div className="grid grid-cols-3 gap-1">
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             1
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             2
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             3
           </button>
-          <button utton className="border border-blue-100 px-8 py-2 text-4xl">
+          <button
+            utton
+            className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100"
+          >
             4
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             5
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             6
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             7
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             8
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             9
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             00
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
             0
           </button>
-          <button className="border border-blue-100 px-8 py-2 text-4xl">
+          <button className="flex justify-center items-center border border-blue-100 text-4xl hover:bg-blue-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

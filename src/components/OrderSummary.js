@@ -1,91 +1,118 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import OrderItem from "./OrderItem";
 
-export default function OrderSummary() {
+export default function OrderSummary({
+  orders,
+  setOrders,
+  setEditIndex,
+  total,
+  setTotal,
+  discount,
+  setDiscount,
+  final,
+  setFinal,
+  dineType,
+  setDineType,
+}) {
   const navigate = useNavigate();
   const handleCheckout = () => {
     navigate("/dashboard/checkout");
   };
+
+  useEffect(() => {
+    let subtotal = 0;
+    orders.forEach((order) => {
+      console.log(order);
+      console.log(order.pcs, order.unit_price);
+      subtotal = subtotal + parseInt(order.pcs) * parseFloat(order.unit_price);
+      console.log(parseInt(order.pcs), parseFloat(order.unit_price));
+      console.log("sub", subtotal);
+    });
+    setTotal(subtotal);
+    setFinal(subtotal - discount);
+  }, [orders]);
+
+  const handleRemoveItem = (e) => {
+    let ordersTemp = orders;
+    ordersTemp.splice(e.target.dataset.index, 1);
+    setOrders([...ordersTemp]);
+  };
+
   return (
-    <div className="w-1/4 shadow-xl pt-12 px-2 border-r">
-      <div className="flex border-b">
-        <p className="font-semibold">Order:</p>
-        <p className="font-semibold">|</p>
-        <p className="font-semibold">Table:</p>
-      </div>
-      <div className="h-2/3">
-        <div className="flex py-2 px-1 items-center justify-between border-b">
-          <div className="flex flex-none text-left flex-col">
-            <div className="font-semibold">Lomi</div>
-            <div className="text-xs">P 30.00</div>
-          </div>
-          <div className="flex justify-end">
-            <div className="w-1/5 flex items-center mr-2">
-              <TextField
-                size="small"
-                className="bg-white"
-                onFocus={() => {
-                  navigate("/dashboard/keypad");
-                }}
-              />
-            </div>
-            <div className="flex items-center mr-2">
-              <p>P 60.00</p>
-            </div>
-            <div className="flex items-center mr-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </div>
-          </div>
+    <div className="flex flex-col w-1/3 shadow-xl pt-10 px-2 border-r">
+      <div className="flex-1 flex flex-col">
+        <div className="flex border-b py-1">
+          <p className="font-semibold">Order:</p>
+          <input className="border-b w-1/3 mx-2" />
+          <p className="font-semibold">Table:</p>
+          <input className="border-b w-1/3 mx-2" />
+        </div>
+        <div className="flex-1 bg-gray-100 overflow-y-auto">
+          {orders.map((order, index) => (
+            <OrderItem
+              order={order}
+              index={index}
+              setEditIndex={setEditIndex}
+              key={order.id + "-key"}
+              handleRemoveItem={handleRemoveItem}
+            />
+          ))}
         </div>
       </div>
-      <div className="border-t">
+      <div className="border-t pb-1">
         <div className="flex space-x-2 mb-2">
           <div className="w-1/2">
-            <div className="text-left">Customer: ________________ </div>
-            <button className="w-full bg-pink-500 text-white py-1 shadow-md rounded">
+            <div className="text-left">Customer:</div>
+            <input
+              className="border placeholder:text-black w-full mb-2 bg-blue-200 py-1"
+              placeholder="Enter Customer"
+            />
+            {/* <button className="w-full bg-pink-500 text-white py-1 shadow-md rounded">
               Change
-            </button>
+            </button> */}
           </div>
           <div className="w-1/2">
             <div className="flex justify-between">
               <div>Subtotal:</div>
-              <div>60.00</div>
+              <div>{total.toFixed(2)}</div>
             </div>
             <div className="flex justify-between">
               <div>Discount:</div>
-              <div>00.00</div>
+              <div>{discount.toFixed(2)}</div>
             </div>
             <div className="flex justify-between mt-2">
               <div className="text-lg font-semibold">Total:</div>
-              <div className="text-lg font-semibold">60.00</div>
+              <div className="text-lg font-semibold">{final.toFixed(2)}</div>
             </div>
           </div>
         </div>
         <div className="flex space-x-2">
-          <button className="flex w-1/2 h-12 justify-center items-center border border-blue-400 text-blue-400 rounded">
+          <button
+            className={`flex ${
+              dineType === "in" ? `bg-green-500 text-white` : "text-blue-400"
+            } w-1/2 h-10 justify-center items-center border border-blue-400 rounded`}
+            onClick={() => {
+              setDineType("in");
+            }}
+          >
             Dine-in
           </button>
-          <button className="flex w-1/2 h-12 justify-center items-center border border-blue-400 text-blue-400 rounded">
+          <button
+            className={`flex ${
+              dineType === "out" ? `bg-green-500 text-white` : "text-blue-400"
+            } w-1/2 h-10 justify-center items-center border border-blue-400 rounded`}
+            onClick={() => {
+              setDineType("out");
+            }}
+          >
             Take-out
           </button>
         </div>
-        <div className="flex mt-2">
+        <div className="flex mt-1">
           <button
-            className="flex justify-center items-center w-full h-16 border bg-blue-500 text-white rounded-md shadow-md"
+            className="flex justify-center items-center w-full h-14 border bg-blue-500 text-white rounded-md shadow-md"
             onClick={handleCheckout}
           >
             Pay Now

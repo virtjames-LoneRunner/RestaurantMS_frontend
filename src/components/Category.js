@@ -1,15 +1,29 @@
 import React from "react";
 
-export default function Category({ handleClick }) {
+export default function Category({ handleClick, category }) {
   return (
-    <div
-      className="flex justify-center items-center bg-white h-36 w-36 shadow-md"
+    <button
+      className="flex justify-center items-center bg-white h-36 w-36 shadow-md rounded-md"
       onClick={handleClick}
+      data-id={category.id}
+      data-name={category.category}
     >
-      <div className="flex flex-col">
-        <div>Category</div>
-        <div className="text-xs">Number of Items</div>
+      <div
+        className="flex flex-col"
+        data-id={category.id}
+        data-name={category.category}
+      >
+        <div data-id={category.id} data-name={category.category}>
+          {category.category}
+        </div>
+        <div
+          data-id={category.id}
+          data-name={category.category}
+          className="text-xs"
+        >
+          Number of Items
+        </div>
       </div>
-    </div>
+    </button>
   );
 }
