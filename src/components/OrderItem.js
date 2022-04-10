@@ -18,7 +18,7 @@ export default function OrderItem({
         </div>
       </div>
       <div className="flex justify-end">
-        <div className="w-1/3 flex items-center mr-2">
+        <div className="flex items-center mr-2">
           <input
             readOnly
             className="bg-white w-12"
@@ -30,7 +30,7 @@ export default function OrderItem({
             id={`${order.id}-input-id`}
           />
         </div>
-        <div className="flex justify-end items-center mr-2 w-1/3">
+        <div className="flex justify-end items-center mr-2">
           <p className="text-sm">
             P{" "}
             {(
