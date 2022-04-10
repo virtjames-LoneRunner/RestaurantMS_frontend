@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import AdminDashboard from "./subviews/admin/AdminDashboard";
 import AdminInventory from "./subviews/admin/AdminInventory";
 import AdminItems from "./subviews/admin/AdminItems";
+import AdminUsers from "./subviews/admin/AdminUsers";
 
 export default function Admin() {
   axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")
@@ -22,6 +23,7 @@ export default function Admin() {
             <Route path="dashboard" element={<AdminDashboard />}></Route>
             <Route path="menu-items" element={<AdminItems />}></Route>
             <Route path="inventory" element={<AdminInventory />}></Route>
+            <Route path="users" element={<AdminUsers />}></Route>
           </Routes>
         </div>
       </div>

@@ -42,6 +42,7 @@ export default function AdminInventoryTable({ inventory }) {
             </th>
           </tr>
         </thead>
+        
         <tbody>
           {inventory.map((row) => (
             <tr
