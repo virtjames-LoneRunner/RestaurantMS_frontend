@@ -66,7 +66,7 @@ export default function AdminInventoryTable({ inventory }) {
               >
                 {row.inventory_item}
               </th>
-              <td className="px-6 py-4">{row.category}</td>
+              <td className="px-6 py-4">{row.item_category}</td>
               <td className="px-6 py-4">{row.unit}</td>
               <td className="px-6 py-4">{row.quantity}</td>
               <td className="px-6 py-4">{row.reorder_quantity}</td>

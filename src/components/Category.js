@@ -3,7 +3,7 @@ import React from "react";
 export default function Category({ handleClick, category }) {
   return (
     <button
-      className="flex justify-center items-center bg-white h-36 w-36 shadow-md rounded-md"
+      className="flex justify-center items-center bg-white h-40 w-40 shadow-md rounded-md"
       onClick={handleClick}
       data-id={category.id}
       data-name={category.category}

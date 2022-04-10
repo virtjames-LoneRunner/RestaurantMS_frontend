@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AdminMenu from "../components/AdminMenu";
@@ -7,6 +8,9 @@ import AdminInventory from "./subviews/admin/AdminInventory";
 import AdminItems from "./subviews/admin/AdminItems";
 
 export default function Admin() {
+  axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")
+    ? localStorage.getItem("token")
+    : "";
   return (
     <div>
       <Header role="admin" />

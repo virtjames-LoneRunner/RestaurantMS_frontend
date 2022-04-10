@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 export default function Header({ role }) {
   const navigate = useNavigate();
   const handleLogout = () => {
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("email");
+    localStorage.removeItem("token");
+    localStorage.removeItem("auth");
     navigate("/login");
   };
   return (

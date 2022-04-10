@@ -1,10 +1,15 @@
 import React from "react";
 
-export default function MenuItem({ menuItem, handleAddOrder }) {
+export default function MenuItem({
+  disabled = false,
+  menuItem,
+  handleAddOrder,
+}) {
   return (
-    <div
-      className="bg-white h-36 w-36 shadow-md rounded-md"
+    <button
+      className="bg-white h-40 w-40 shadow-md rounded-md disabled:opacity-75"
       onClick={handleAddOrder}
+      disabled={disabled}
       data-id={menuItem.id}
       data-item={menuItem.menu_item}
       data-unit_price={menuItem.unit_price}
@@ -26,6 +31,17 @@ export default function MenuItem({ menuItem, handleAddOrder }) {
         >
           P {menuItem.unit_price.toFixed(2)}/{menuItem.unit}
         </div>
+        {disabled ? (
+          <div
+            className="absolute top-7 right-1 bg-red-500 px-2 rounded shadow-md text-xs text-white"
+            data-id={menuItem.id}
+            data-item={menuItem.menu_item}
+            data-unit_price={menuItem.unit_price}
+            data-unit={menuItem.unit}
+          >
+            Not Available
+          </div>
+        ) : null}
         <div
           className="absolute bottom-0 bg-white w-full rounded-b-md"
           data-id={menuItem.id}
@@ -36,6 +52,6 @@ export default function MenuItem({ menuItem, handleAddOrder }) {
           {menuItem.menu_item}
         </div>
       </div>
-    </div>
+    </button>
   );
 }
