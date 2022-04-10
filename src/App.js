@@ -31,7 +31,7 @@ function getCookie(name) {
 
 // Axios Setup
 // axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "http://192.168.1.12:8000";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")

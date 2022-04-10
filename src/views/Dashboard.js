@@ -9,6 +9,25 @@ import Tables from "./subviews/Tables";
 
 import axios from "axios";
 
+function formatDate(date) {
+  function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+  const formatMap = {
+    hh: addZero(date.getHours()),
+    min: addZero(date.getMinutes()),
+    ss: addZero(date.getSeconds()),
+    mm: addZero(date.getMonth() + 1),
+    dd: addZero(date.getDate()),
+    yy: date.getFullYear().toString().slice(-2),
+    yyyy: date.getFullYear(),
+  };
+  return formatMap;
+}
+
 export default function Dashboard() {
   const auth_token = localStorage.getItem("token")
     ? localStorage.getItem("token")
@@ -27,15 +46,16 @@ export default function Dashboard() {
   const [final, setFinal] = useState(0);
 
   const [dineType, setDineType] = useState("in");
-
   const [editIndex, setEditIndex] = useState({ i: 0, id: "" });
+  const date = formatDate(new Date());
 
+  const [transactionCode, setTransactionCode] = useState(
+    "HNJ" + date.dd + date.mm + date.yyyy + date.hh + date.min + date.ss
+  );
   const handleSubmitTransaction = () => {
-    let code = new Date();
-
     const data = {
       cashier_id: "APYM1209",
-      transaction_id: code,
+      transaction_id: transactionCode,
       transaction_type: dineType,
       table_number: 1,
       total_amount: parseFloat(total),
@@ -55,6 +75,10 @@ export default function Dashboard() {
           `Change: ${(parseFloat(amountGiven) - parseFloat(total)).toFixed(2)}`
         );
         window.location.replace("/dashboard/items");
+        const date = formatDate(new Date());
+        setTransactionCode(
+          "HNJ" + date.dd + date.mm + date.yyyy + date.hh + date.min + date.ss
+        );
       });
   };
 
@@ -63,6 +87,7 @@ export default function Dashboard() {
       <Header role="non-admin" />
       <div className="flex h-screen">
         <OrderSummary
+          transactionCode={transactionCode}
           orders={orders}
           setOrders={setOrders}
           setEditIndex={setEditIndex}

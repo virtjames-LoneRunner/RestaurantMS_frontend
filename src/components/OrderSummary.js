@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import OrderItem from "./OrderItem";
 
 export default function OrderSummary({
+  transactionCode,
   orders,
   setOrders,
   setEditIndex,
@@ -21,8 +22,8 @@ export default function OrderSummary({
     navigate("/dashboard/checkout");
   };
   const handleShowTables = () => {
-    navigate("/dashboard/tables")
-  }
+    navigate("/dashboard/tables");
+  };
 
   useEffect(() => {
     let subtotal = 0;
@@ -48,7 +49,7 @@ export default function OrderSummary({
       <div className="flex-1 flex flex-col">
         <div className="flex border-b py-1">
           <p className="font-semibold">Order:</p>
-          <input className="border-b w-1/3 mx-2" />
+          <input className="border-b w-1/3 mx-2" value={transactionCode} />
           <p className="font-semibold">Table:</p>
           <input onClick={handleShowTables} className="border-b w-1/3 mx-2" />
         </div>
