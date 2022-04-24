@@ -5,7 +5,7 @@ export default function AdminInventoryTable({ inventory }) {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500">
-        <thead className="text-xs text-white uppercase bg-[#ae3f80]">
+        <thead className="text-xs text-white uppercase bg-blue-500">
           <tr>
             <th scope="col" className="p-4">
               <div className="flex items-center">
@@ -42,7 +42,7 @@ export default function AdminInventoryTable({ inventory }) {
             </th>
           </tr>
         </thead>
-        
+
         <tbody>
           {inventory.map((row) => (
             <tr

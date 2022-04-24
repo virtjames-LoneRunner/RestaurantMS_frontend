@@ -161,14 +161,14 @@ export default function AdminAddMenuItems({ category }) {
                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                   >
                     <select
-                      className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-20"
+                      className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-26"
                       onChange={handleSelection}
                       name="item"
                     >
                       <option value="">Select Item</option>
                       {ingredientsOptions.map((option) => (
                         <option
-                          value={`{ "id": ${option.id}, "item": "${option.inventory_item}" }`}
+                          value={`{ "id": ${option.id}, "item": "${option.inventory_item}", "unit": "${option.unit}" }`}
                           key={option.id}
                         >
                           {option.inventory_item}
@@ -178,15 +178,16 @@ export default function AdminAddMenuItems({ category }) {
                   </th>
                   <td className="px-6 py-4">
                     <input
-                      className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-14"
-                      onChange={handleInput}
+                      className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-20"
+                      // onChange={handleInput}
                       placeholder="Unit"
                       name="unit"
+                      value={currentIngredient.item.unit}
                     />
                   </td>
                   <td className="px-6 py-4">
                     <input
-                      className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-14"
+                      className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-20"
                       onChange={handleInput}
                       placeholder="Qty."
                       name="quantity"

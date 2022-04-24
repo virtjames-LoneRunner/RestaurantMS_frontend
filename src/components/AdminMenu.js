@@ -21,14 +21,14 @@ export default function AdminMenu() {
           Dashboard
         </Link>
         <Link
-          to="earnings"
+          to="transactions"
           className={`pl-10 py-2 ${
-            location.pathname.includes("/admin/earnings")
+            location.pathname.includes("/admin/transactions")
               ? "bg-blue-200 shadow-md"
               : "hover:bg-blue-200"
           }`}
         >
-          Earnings
+          Transactions
         </Link>
         <Link
           to="menu-items"
@@ -81,12 +81,12 @@ export default function AdminMenu() {
           Settings
         </Link>
       </div>
-      <div className="mt-auto mb-2 mx-1">
+      {/* <div className="mt-auto mb-2 mx-1">
         <div className="flex h-12 bg-blue-200 shadow px-2 py-1">
           <div className="flex-none w-1/2 text-left">Name</div>
           <div className="flex-1">Options</div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
