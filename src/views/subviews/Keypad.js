@@ -26,88 +26,88 @@ export default function Keypad({ editIndex, setOrders, orders }) {
     document.getElementById(editIndex.id).focus();
   };
   return (
-    <div className="flex justify-center items-center h-full">
-      <div className="bg-white p-5">
+    <div className="flex justify-center items-center h-full pt-10">
+      <div className="bg-white p-2 md:p-5">
         <div className="grid grid-cols-3 gap-1">
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="1"
             onClick={handleClick}
           >
             1
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="2"
             onClick={handleClick}
           >
             2
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="3"
             onClick={handleClick}
           >
             3
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="4"
             onClick={handleClick}
           >
             4
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="5"
             onClick={handleClick}
           >
             5
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="6"
             onClick={handleClick}
           >
             6
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="7"
             onClick={handleClick}
           >
             7
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="8"
             onClick={handleClick}
           >
             8
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="9"
             onClick={handleClick}
           >
             9
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="00"
             onClick={handleClick}
           >
             00
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             data-value="0"
             onClick={handleClick}
           >
             0
           </button>
           <button
-            className="border border-blue-100 px-8 py-4 text-4xl"
+            className="border border-blue-100 px-2 md:px-8 py-1 md:py-4 text-lg md:text-4xl"
             onClick={handleClear}
           >
             <svg
@@ -127,7 +127,7 @@ export default function Keypad({ editIndex, setOrders, orders }) {
           </button>
         </div>
         <button
-          className="bg-blue-500 w-full h-16 mt-2 text-white shadow-md"
+          className="bg-blue-500 w-full h-10 md:h-16 mt-2 text-white shadow-md"
           onClick={handleDone}
         >
           Done

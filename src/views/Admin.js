@@ -12,9 +12,11 @@ export default function Admin() {
   axios.defaults.headers.common["Authorization"] = localStorage.getItem("token")
     ? localStorage.getItem("token")
     : "";
+
   return (
     <div>
       <Header role="admin" />
+
       <div className="flex h-screen pt-10">
         <AdminMenu />
         <div className="pt-5 pl-5 h-full w-full bg-blue-100">

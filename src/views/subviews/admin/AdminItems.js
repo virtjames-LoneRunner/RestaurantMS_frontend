@@ -6,16 +6,16 @@ import AdminMenuItems from "./AdminMenuItems";
 import AdminAddCategory from "./AdminAddCategory";
 import AdminAddMenuItems from "./AdminAddMenuItems";
 
-export default function AdminItems({}) {
+export default function AdminItems() {
   const [tabs, setTabs] = useState(1);
   const [category, setCategory] = useState("");
 
   return (
     <div className="h-full">
-      <div className="flex items-center justify-between pr-5 pl-5">
+      <div className="flex items-center justify-between pr-5">
         <Breadcrumbs aria-label="breadcrumb">
           <button
-            className="bg-gray-500 rounded-md shadow-md text-white py-2 w-24"
+            className="bg-gray-500 text-white py-1 px-2 md:py-2 md:w-24 text-sm md:text-base"
             underline="hover"
             color="inherit"
             onClick={() => {
@@ -26,7 +26,7 @@ export default function AdminItems({}) {
           </button>
           {tabs === 2 ? (
             <button
-              className="bg-gray-500 rounded-md shadow-md text-white py-2 w-24"
+              className="bg-gray-500 text-white py-1 px-2 md:py-2 md:w-24 text-sm md:text-base"
               underline="hover"
               color="inherit"
             >
@@ -34,40 +34,37 @@ export default function AdminItems({}) {
             </button>
           ) : null}
         </Breadcrumbs>
-        <div>
+        <div className="">
           {tabs === 1 ? (
             <div className="space-x-1">
-              <Button
-                variant="contained"
-                color="primary"
+              <button
                 onClick={() => setTabs(3)}
+                className="bg-blue-500 hover:bg-blue-600 text-white p-2 text-xs md:text-base"
               >
                 Add Category
-              </Button>
-              <Button variant="contained" color="secondary">
+              </button>
+              {/* <button className="bg-pink-500 hover:bg-pink-600 text-white p-2 text-xs md:text-base">
                 Filter
-              </Button>
+              </button> */}
             </div>
           ) : null}
           {tabs === 2 ? (
-            <div className="space-x-1">
-              <Button
-                variant="contained"
-                color="primary"
+            <div className="flex flex-row space-x-1">
+              <button
                 onClick={() => setTabs(4)}
+                className="bg-blue-500 hover:bg-blue-600 text-white p-2 text-xs md:text-base"
               >
-                Add Menu Item
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
+                Add Item
+              </button>
+              <button
                 onClick={() => setTabs(3)}
+                className="bg-pink-500 hover:bg-pink-600 text-white p-2 text-xs md:text-base"
               >
                 Edit Category
-              </Button>
-              <Button variant="contained" color="secondary">
+              </button>
+              {/* <button className="bg-pink-500 hover:bg-pink-600 text-white p-2 text-xs md:text-base">
                 Filter
-              </Button>
+              </button> */}
             </div>
           ) : null}
         </div>

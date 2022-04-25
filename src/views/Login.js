@@ -35,7 +35,7 @@ export default function Login() {
     <div className="bg-blue-500 flex justify-center items-center w-full h-full">
       <form
         onSubmit={handleSubmit(handleLogin)}
-        className="flex flex-col justify-center bg-white px-5 pb-5 w-1/4 shadow-md space-y-2"
+        className="flex flex-col justify-center bg-white px-5 pb-5 md:w-1/4 shadow-md space-y-2"
       >
         <img src={hnjlogo} alt="Company Logo" className="pt-5 px-5" />
         <div>

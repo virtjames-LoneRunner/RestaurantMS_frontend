@@ -30,6 +30,7 @@ export default function AdminAddMenuItems({ category }) {
     setCurrentIngredient({
       ...currentIngredient,
       [e.target.name]: JSON.parse(e.target.value),
+      unit: JSON.parse(e.target.value).unit,
     });
   };
   const handleInput = (e) => {
@@ -70,13 +71,13 @@ export default function AdminAddMenuItems({ category }) {
       });
   };
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-5 pr-5">
       <form
         onSubmit={handleSubmit(handleAddMenuItem)}
-        className="flex flex-col space-y-2 bg-white px-4 py-4"
+        className="flex flex-col space-y-2 bg-white px-4 py-4 w-full md:w-auto"
       >
         <p className="text-lg">Add Menu Item</p>
-        <div className="flex space-x-2">
+        <div className="flex flex-col md:flex-row md:space-x-2">
           <div className="flex flex-col space-y-2">
             <TextField
               label="Category"
@@ -109,20 +110,20 @@ export default function AdminAddMenuItems({ category }) {
               helperText={errors ? errors.unit_price : ""}
             />
           </div>
-          <div className="flex flex-col justify-between">
-            <table className="w-full text-sm text-left text-gray-500 shadow">
+          <div className="flex flex-col justify-between w-full">
+            <table className="md:w-full text-sm text-left text-gray-500 shadow my-4 md:my-0">
               <thead className="text-xs text-gray-700 uppercase bg-blue-100">
                 <tr>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-2 md:px-6 py-2 md:py-3">
                     Item
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-2 md:px-6 py-2 md:py-3">
                     Unit
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-2 md:px-6 py-2 md:py-3">
                     Quantity
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-2 md:px-6 py-2 md:py-3">
                     <span className="sr-only">Edit</span>
                   </th>
                 </tr>
@@ -135,13 +136,17 @@ export default function AdminAddMenuItems({ category }) {
                   >
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                      className="px-2 md:px-6 py-2 md:py-4 font-medium text-gray-900 whitespace-nowrap"
                     >
                       {ingredient.item.item}
                     </th>
-                    <td className="px-6 py-4">{ingredient.unit}</td>
-                    <td className="px-6 py-4">{ingredient.quantity}</td>
-                    <td className="px-6 py-4 text-right">
+                    <td className="px-2 md:px-6 py-2 md:py-4">
+                      {ingredient.unit}
+                    </td>
+                    <td className="px-2 md:px-6 py-2 md:py-4">
+                      {ingredient.quantity}
+                    </td>
+                    <td className="px-2 md:px-6 py-2 md:py-4 text-right">
                       <button
                         className="font-medium text-blue-600 hover:underline"
                         type="button"
@@ -158,7 +163,7 @@ export default function AdminAddMenuItems({ category }) {
                 <tr className="bg-white border-b hover:bg-gray-50">
                   <th
                     scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                    className="px-2 md:px-6 py-2 md:py-4 font-medium text-gray-900 whitespace-nowrap"
                   >
                     <select
                       className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-26"
@@ -176,16 +181,16 @@ export default function AdminAddMenuItems({ category }) {
                       ))}
                     </select>
                   </th>
-                  <td className="px-6 py-4">
+                  <td className="px-2 md:px-6 py-2 md:py-4">
                     <input
                       className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-20"
                       // onChange={handleInput}
                       placeholder="Unit"
                       name="unit"
-                      value={currentIngredient.item.unit}
+                      value={currentIngredient?.item?.unit}
                     />
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-2 md:px-6 py-2 md:py-4">
                     <input
                       className="border rounded py-1 pl-1 focus:outline-none focus:ring-blue-500 focus:ring-1 w-20"
                       onChange={handleInput}
@@ -193,7 +198,7 @@ export default function AdminAddMenuItems({ category }) {
                       name="quantity"
                     />
                   </td>
-                  <td className="px-6 py-4 text-right">
+                  <td className="px-2 md:px-6 py-2 md:py-4 text-right">
                     <button
                       type="button"
                       onClick={() => {

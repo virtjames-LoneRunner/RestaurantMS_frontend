@@ -22,7 +22,7 @@ export default function AdminAddCategory() {
       });
   };
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-5">
       <form
         onSubmit={handleSubmit(handleAddCategory)}
         className="flex flex-col space-y-2 bg-white px-4 py-4"

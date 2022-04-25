@@ -2,17 +2,21 @@ import { TextField } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function CheckoutKeypad({handleSubmitTransaction, amountGiven, setAmountGiven}) {
+export default function CheckoutKeypad({
+  handleSubmitTransaction,
+  amountGiven,
+  setAmountGiven,
+}) {
   const navigate = useNavigate();
   const handleDone = () => {
     navigate();
   };
   const handleInput = (e) => {
-    setAmountGiven(amountGiven + e.target.value)
-  }
+    setAmountGiven(amountGiven + e.target.value);
+  };
   const handleClear = () => {
-    setAmountGiven(amountGiven.slice(0, -1))
-  }
+    setAmountGiven(amountGiven.slice(0, -1));
+  };
   const handleCancel = () => {
     navigate("/dashboard/items");
   };
@@ -20,43 +24,94 @@ export default function CheckoutKeypad({handleSubmitTransaction, amountGiven, se
     <div className="flex justify-center items-center h-full">
       <div className="bg-white p-5">
         <div className="mb-2">
-          <TextField fullWidth value={amountGiven}/>
+          <input
+            readOnly
+            value={amountGiven}
+            className="border-2 border-gray-400"
+          />
         </div>
         <div className="grid grid-cols-3 gap-1">
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='1'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="1"
+          >
             1
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='2'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="2"
+          >
             2
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='3'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="3"
+          >
             3
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='4'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="4"
+          >
             4
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='5'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="5"
+          >
             5
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='6'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="6"
+          >
             6
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='7'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="7"
+          >
             7
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='8'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="8"
+          >
             8
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='9'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="9"
+          >
             9
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='.'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="."
+          >
             .
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleInput} value='0'>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleInput}
+            value="0"
+          >
             0
           </button>
-          <button className="border border-blue-100 px-8 py-4 text-4xl" onClick={handleClear}>
+          <button
+            className="border border-blue-100 px-4 md:px-8 py-2 md:py-4 text-base md:text-4xl"
+            onClick={handleClear}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -74,13 +129,13 @@ export default function CheckoutKeypad({handleSubmitTransaction, amountGiven, se
           </button>
         </div>
         <button
-          className="bg-blue-500 w-full h-16 mt-2 text-white shadow-md"
+          className="bg-blue-500 w-full h-10 md:h-16 mt-2 text-white shadow-md"
           onClick={handleSubmitTransaction}
         >
           Done
         </button>
         <button
-          className="bg-pink-500 w-full h-16 mt-1 text-white shadow-md"
+          className="bg-pink-500 w-full h-10 md:h-16 mt-1 text-white shadow-md"
           onClick={handleCancel}
         >
           Cancel

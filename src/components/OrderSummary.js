@@ -45,15 +45,23 @@ export default function OrderSummary({
   };
 
   return (
-    <div className="flex flex-col w-1/3 shadow-xl pt-10 px-2 border-r">
+    <div className="flex flex-col w-full md:w-1/3 h-full shadow-xl pt-5 md:pt-10 px-2 border-r border-b-2">
       <div className="flex-1 flex flex-col">
         <div className="flex border-b py-1">
           <p className="font-semibold">Order:</p>
-          <input className="border-b w-1/3 mx-2" value={transactionCode} />
+          <input
+            className="border-b w-1/3 mx-2 text-xs md:text-sm"
+            value={transactionCode}
+          />
           <p className="font-semibold">Table:</p>
-          <input onClick={handleShowTables} className="border-b w-1/3 mx-2" />
+          <button
+            onClick={handleShowTables}
+            className="w-1/3 mx-2 bg-gray-400 text-white"
+          >
+            Select Table
+          </button>
         </div>
-        <div className="flex-1 bg-gray-100 overflow-y-auto">
+        <div className="md:flex-1 bg-gray-100 md:overflow-y-auto">
           {orders.map((order, index) => (
             <OrderItem
               order={order}

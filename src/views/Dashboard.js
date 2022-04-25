@@ -53,6 +53,10 @@ export default function Dashboard() {
     "HNJ" + date.dd + date.mm + date.yyyy + date.hh + date.min + date.ss
   );
   const handleSubmitTransaction = () => {
+    if (parseFloat(amountGiven) < parseFloat(total)) {
+      alert("Amount given less than total");
+      return;
+    }
     const data = {
       cashier_id: "APYM1209",
       transaction_id: transactionCode,
@@ -85,7 +89,7 @@ export default function Dashboard() {
   return (
     <div>
       <Header role="non-admin" />
-      <div className="flex h-screen">
+      <div className="flex flex-col-reverse md:flex-row h-screen pt-10 md:pt-0">
         <OrderSummary
           transactionCode={transactionCode}
           orders={orders}
@@ -100,7 +104,7 @@ export default function Dashboard() {
           dineType={dineType}
           setDineType={setDineType}
         />
-        <div className="w-3/4 pt-12 bg-[#ebefff]">
+        <div className="md:w-3/4 pt-5 md:pt-12 pb-5 md:pb-0 bg-[#ebefff] h-4/5 md:h-full overflow-y-auto">
           <Routes>
             <Route path="" element={<Navigate replace to="items" />}></Route>
             <Route

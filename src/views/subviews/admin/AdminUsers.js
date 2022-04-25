@@ -26,7 +26,7 @@ export default function AdminUsers() {
           Add User{" "}
         </button>
       </div>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mr-6">
+      <div className="overflow-x-auto shadow-md sm:rounded-lg mr-6">
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-white uppercase bg-blue-500">
             <tr>

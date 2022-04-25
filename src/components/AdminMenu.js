@@ -1,11 +1,19 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import hnjlogo from "../static/img/HNJplus.png";
 
 export default function AdminMenu() {
+  const navigate = useNavigate();
   const location = useLocation();
+  const handleLogout = () => {
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("email");
+    localStorage.removeItem("token");
+    localStorage.removeItem("auth");
+    navigate("/login");
+  };
   return (
-    <div className="flex flex-col h-full w-1/5 bg-white shadow-md">
+    <div className="flex-col h-full w-1/5 bg-white shadow-md hidden md:flex">
       <div className="flex justify-center">
         <img src={hnjlogo} alt="Company Logo" className="p-4 h-28" />
       </div>
@@ -80,6 +88,16 @@ export default function AdminMenu() {
         >
           Settings
         </Link>
+      </div>
+      <div className="flex flex-col">
+        <button
+          onClick={() => {
+            handleLogout();
+          }}
+          className="pl-10 py-2 hover:bg-blue-200 text-left"
+        >
+          Logout
+        </button>
       </div>
       {/* <div className="mt-auto mb-2 mx-1">
         <div className="flex h-12 bg-blue-200 shadow px-2 py-1">
