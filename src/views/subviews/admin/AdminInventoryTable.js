@@ -69,7 +69,7 @@ export default function AdminInventoryTable({ inventory }) {
               </th>
               <td className="px-6 py-4">{row.item_category}</td>
               <td className="px-6 py-4">{row.unit}</td>
-              <td className="px-6 py-4">{row.quantity}</td>
+              <td className="px-6 py-4">{row.quantity.toFixed(2)}</td>
               <td className="px-6 py-4">{row.reorder_quantity}</td>
               <td className="px-6 py-4">
                 {row.quantity > parseFloat(row.reorder_quantity) * 0.6

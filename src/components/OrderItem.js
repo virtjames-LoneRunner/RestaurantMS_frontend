@@ -13,7 +13,7 @@ export default function OrderItem({
     <div className="flex py-2 px-1 items-center justify-between border-b">
       <div className="flex flex-none text-left flex-col">
         <div className="font-regular w-32 truncate text-sm">{order.item}</div>
-        <div className="text-xs">
+        <div className="text-xs text-gray-500">
           P{parseFloat(order.unit_price).toFixed(2)}/{order.unit}
         </div>
       </div>
@@ -30,8 +30,8 @@ export default function OrderItem({
             id={`${order.id}-input-id`}
           />
         </div>
-        <div className="flex justify-end items-center mr-2">
-          <p className="text-sm">
+        <div className="flex justify-end items-center mr-2 w-20">
+          <p className="text-xs lg:text-sm">
             P{" "}
             {(
               parseInt(order.pcs) * parseFloat(order.unit_price).toFixed(2)

@@ -3,10 +3,16 @@ import React, { useEffect, useState } from "react";
 
 export default function AdminDashboard() {
   const [transactions, setTransactions] = useState([]);
+  const [total, setTotal] = useState(0);
   const getTransactions = () => {
+    let total_amount = 0;
     axios.get(`/api/transactions`).then((res) => {
       if (res.status === 200) {
         setTransactions(res.data);
+        for (let i = 0; i < res.data.length; i++) {
+          total_amount += res.data[i].total_amount;
+        }
+        setTotal(total_amount);
       }
     });
   };
@@ -103,12 +109,12 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
-      <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pr-5">
+      <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-2 pr-5">
         <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
           <div class="flex items-center justify-between mb-4">
             <div class=" text-left">
               <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-800">
-                ₱5,385
+                ₱ {total}
               </span>
               <h3 class="text-base font-normal text-gray-500">
                 Sales this week
@@ -179,7 +185,7 @@ export default function AdminDashboard() {
                       </tr>
                     </thead>
                     <tbody class="bg-white">
-                      {transactions?.map((transaction) => (
+                      {transactions?.slice(0, 5).map((transaction) => (
                         <tr key={transaction.id}>
                           <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-800">
                             {transaction.transaction_id}

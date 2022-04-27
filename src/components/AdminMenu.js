@@ -20,70 +20,70 @@ export default function AdminMenu() {
       <div className="flex flex-col text-left">
         <Link
           to="dashboard"
-          className={`pl-10 py-2 ${
+          className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/dashboard")
-              ? "bg-blue-200 shadow-md"
-              : "hover:bg-blue-200"
+              ? "bg-blue-500  text-white shadow-md"
+              : "hover:bg-blue-500 hover:text-white"
           }`}
         >
           Dashboard
         </Link>
         <Link
           to="transactions"
-          className={`pl-10 py-2 ${
+          className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/transactions")
-              ? "bg-blue-200 shadow-md"
-              : "hover:bg-blue-200"
+              ? "bg-blue-500  text-white shadow-md"
+              : "hover:bg-blue-500 hover:text-white"
           }`}
         >
           Transactions
         </Link>
         <Link
           to="menu-items"
-          className={`pl-10 py-2 ${
+          className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/menu-items")
-              ? "bg-blue-200 shadow-md"
-              : "hover:bg-blue-200"
+              ? "bg-blue-500  text-white shadow-md"
+              : "hover:bg-blue-500 hover:text-white"
           }`}
         >
           Menu Items
         </Link>
         <Link
           to="inventory"
-          className={`pl-10 py-2 ${
+          className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/inventory")
-              ? "bg-blue-200 shadow-md"
-              : "hover:bg-blue-200"
+              ? "bg-blue-500  text-white shadow-md"
+              : "hover:bg-blue-500 hover:text-white"
           }`}
         >
           Inventory
         </Link>
         <Link
           to="reports"
-          className={`pl-10 py-2 ${
+          className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/reports")
-              ? "bg-blue-200 shadow-md"
-              : "hover:bg-blue-200"
+              ? "bg-blue-500  text-white shadow-md"
+              : "hover:bg-blue-500 hover:text-white"
           }`}
         >
           Reports
         </Link>
         <Link
           to="users"
-          className={`pl-10 py-2 ${
+          className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/users")
-              ? "bg-blue-200 shadow-md"
-              : "hover:bg-blue-200"
+              ? "bg-blue-500  text-white shadow-md"
+              : "hover:bg-blue-500 hover:text-white"
           }`}
         >
           Users/Employees
         </Link>
         <Link
           to="settings"
-          className={`pl-10 py-2 ${
+          className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/settings")
-              ? "bg-blue-200 shadow-md"
-              : "hover:bg-blue-200"
+              ? "bg-blue-500  text-white shadow-md"
+              : "hover:bg-blue-500 hover:text-white"
           }`}
         >
           Settings
@@ -94,13 +94,13 @@ export default function AdminMenu() {
           onClick={() => {
             handleLogout();
           }}
-          className="pl-10 py-2 hover:bg-blue-200 text-left"
+          className="pl-5 lg:pl-10 py-2 hover:bg-blue-500 hover:text-white text-left"
         >
           Logout
         </button>
       </div>
       {/* <div className="mt-auto mb-2 mx-1">
-        <div className="flex h-12 bg-blue-200 shadow px-2 py-1">
+        <div className="flex h-12 bg-blue-500  text-white shadow px-2 py-1">
           <div className="flex-none w-1/2 text-left">Name</div>
           <div className="flex-1">Options</div>
         </div>

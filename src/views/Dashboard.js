@@ -32,6 +32,8 @@ export default function Dashboard() {
   const auth_token = localStorage.getItem("token")
     ? localStorage.getItem("token")
     : "";
+
+  const auth = localStorage.getItem("auth");
   axios.defaults.headers.common["Authorization"] = auth_token;
   useEffect(() => {
     if (!auth_token) {
@@ -46,6 +48,7 @@ export default function Dashboard() {
   const [final, setFinal] = useState(0);
 
   const [dineType, setDineType] = useState("in");
+  const [tableNumber, setTableNumber] = useState(null);
   const [editIndex, setEditIndex] = useState({ i: 0, id: "" });
   const date = formatDate(new Date());
 
@@ -61,7 +64,7 @@ export default function Dashboard() {
       cashier_id: "APYM1209",
       transaction_id: transactionCode,
       transaction_type: dineType,
-      table_number: 1,
+      table_number: tableNumber,
       total_amount: parseFloat(total),
       amount_given: parseFloat(amountGiven),
       discount: 0.0,
@@ -88,7 +91,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <Header role="non-admin" />
+      <Header role="non-admin" auth={auth} />
       <div className="flex flex-col-reverse md:flex-row h-screen pt-10 md:pt-0">
         <OrderSummary
           transactionCode={transactionCode}
@@ -103,6 +106,7 @@ export default function Dashboard() {
           setFinal={setFinal}
           dineType={dineType}
           setDineType={setDineType}
+          tableNumber={tableNumber}
         />
         <div className="md:w-3/4 pt-5 md:pt-12 pb-5 md:pb-0 bg-[#ebefff] h-4/5 md:h-full overflow-y-auto">
           <Routes>
@@ -131,7 +135,15 @@ export default function Dashboard() {
                 />
               }
             ></Route>
-            <Route path="tables" element={<Tables />} />
+            <Route
+              path="tables"
+              element={
+                <Tables
+                  setTableNumber={setTableNumber}
+                  tableNumber={tableNumber}
+                />
+              }
+            />
           </Routes>
         </div>
       </div>

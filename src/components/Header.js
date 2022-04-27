@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import DrawerMenu from "./DrawerMenu";
 
-export default function Header({ role }) {
+export default function Header({ role, auth }) {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("user_id");
@@ -17,31 +17,71 @@ export default function Header({ role }) {
     <div className={`fixed top-0 w-full shadow-md z-50`}>
       <div className={`flex h-10 bg-blue-500 w-full px-5 ${"justify-between"}`}>
         <div
-          className={`flex py-1 space-x-2 ${role === "admin" ? "hidden" : ""}`}
+          className={`flex py-1 space-x-1 md:space-x-2 ${
+            role === "admin" ? "hidden" : ""
+          }`}
         >
-          <Button
-            variant="contained"
-            size="small"
+          <button
+            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md ${
+              auth === "true" ? "" : "hidden"
+            }`}
             onClick={() => {
               navigate("/admin");
             }}
           >
             Admin View
-          </Button>
-          <Button variant="contained" size="small">
-            Reservations
-          </Button>
-        </div>
-        <div className={`flex py-1 ${role === "admin" ? "" : "hidden"}`}>
-          <Button
-            variant="contained"
-            size="small"
+          </button>
+          <button
+            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md  ${
+              role === "chef" ? "hidden" : ""
+            }`}
+            onClick={() => {
+              navigate("/chef");
+            }}
+          >
+            Chef View
+          </button>
+          <button
+            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md  ${
+              role === "non-admin" ? "hidden" : ""
+            }`}
             onClick={() => {
               navigate("/dashboard");
             }}
           >
             POS View
-          </Button>
+          </button>
+          <button
+            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md ${
+              role === "non-admin" ? "" : "hidden"
+            }`}
+          >
+            Reservations
+          </button>
+        </div>
+        <div
+          className={`flex py-1 space-x-1 md:space-x-2 ${
+            role === "admin" ? "" : "hidden"
+          }`}
+        >
+          <button
+            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md  ${
+              role === "chef" ? "hidden" : ""
+            }`}
+            onClick={() => {
+              navigate("/chef");
+            }}
+          >
+            Chef View
+          </button>
+          <button
+            className="bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md"
+            onClick={() => {
+              navigate("/dashboard");
+            }}
+          >
+            POS View
+          </button>
         </div>
         {role === "admin" ? (
           <DrawerMenu handleLogout={handleLogout} />

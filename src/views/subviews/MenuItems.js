@@ -43,7 +43,7 @@ export default function MenuItems({ category, orders, setOrders }) {
 
   return (
     <div className="flex flex-col py-5 px-5">
-      <div className="flex-auto grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+      <div className="flex-auto grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-2">
         {menuItems.map((menuItem) => (
           <MenuItem
             disabled={menuItem.available ? false : true}

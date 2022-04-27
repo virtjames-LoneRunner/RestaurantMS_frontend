@@ -7,7 +7,7 @@ export default function MenuItem({
 }) {
   return (
     <button
-      className="bg-white h-28 w-28 md:h-40 md:w-40 shadow-md rounded-md disabled:opacity-75"
+      className="bg-white h-28 w-28 md:h-32 md:w-32 lg:h-40 lg:w-40 shadow-md rounded-md disabled:opacity-75"
       onClick={handleAddOrder}
       disabled={disabled}
       data-id={menuItem.id}
