@@ -8,6 +8,8 @@ import Keypad from "./subviews/Keypad";
 import Tables from "./subviews/Tables";
 
 import axios from "axios";
+import moment from "moment";
+import { BASE_URL_WS } from "../config/config";
 
 function formatDate(date) {
   function addZero(i) {
@@ -29,6 +31,27 @@ function formatDate(date) {
 }
 
 export default function Dashboard() {
+  const [messages, setMessages] = useState({});
+  const [updateCount, setUpdateCount] = useState(0);
+
+  var socketPath = "ws://" + BASE_URL_WS + "/ws/notifications/";
+
+  const chatSocket = new WebSocket(socketPath);
+  chatSocket.onmessage = (e) => {
+    var data = JSON.parse(e.data);
+    var message = { text: data.message, date: data.utc_time };
+    message.date = moment(message.date).local().format("YYYY-MM-DD HH:mm:ss");
+
+    let updated_messages = [...messages];
+    updated_messages.push(message);
+    setMessages({ messages: updated_messages });
+    return;
+  };
+
+  chatSocket.onclose = (e) => {
+    console.error("Chat socket closed unexpectedly");
+  };
+
   const auth_token = localStorage.getItem("token")
     ? localStorage.getItem("token")
     : "";
@@ -60,6 +83,10 @@ export default function Dashboard() {
       alert("Amount given less than total");
       return;
     }
+    if (orders.length === 0) {
+      alert("No orders");
+      return;
+    }
     const data = {
       cashier_id: "APYM1209",
       transaction_id: transactionCode,
@@ -81,6 +108,7 @@ export default function Dashboard() {
         alert(
           `Change: ${(parseFloat(amountGiven) - parseFloat(total)).toFixed(2)}`
         );
+        chatSocket.send(JSON.stringify({ message: "order-submitted" }));
         window.location.replace("/dashboard/items");
         const date = formatDate(new Date());
         setTransactionCode(
