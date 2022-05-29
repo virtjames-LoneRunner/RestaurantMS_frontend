@@ -14,6 +14,9 @@ import Cookies from "js-cookie";
 import Admin from "./views/Admin";
 import Chef from "./views/Chef";
 
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
+
 function getCookie(name) {
   let cookieValue = null;
   if (document.cookie && document.cookie !== "") {

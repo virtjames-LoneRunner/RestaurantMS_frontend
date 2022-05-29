@@ -8,7 +8,8 @@ import AdminAddMenuItems from "./AdminAddMenuItems";
 
 export default function AdminItems() {
   const [tabs, setTabs] = useState(1);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(null);
+  const [menuItem, setMenuItem] = useState(null);
 
   return (
     <div className="h-full">
@@ -38,7 +39,10 @@ export default function AdminItems() {
           {tabs === 1 ? (
             <div className="space-x-1">
               <button
-                onClick={() => setTabs(3)}
+                onClick={() => {
+                  setCategory(null);
+                  setTabs(3);
+                }}
                 className="bg-blue-500 hover:bg-blue-600 text-white p-2 text-xs md:text-base"
               >
                 Add Category
@@ -51,7 +55,10 @@ export default function AdminItems() {
           {tabs === 2 ? (
             <div className="flex flex-row space-x-1">
               <button
-                onClick={() => setTabs(4)}
+                onClick={() => {
+                  setMenuItem(null);
+                  setTabs(4);
+                }}
                 className="bg-blue-500 hover:bg-blue-600 text-white p-2 text-xs md:text-base"
               >
                 Add Item
@@ -73,9 +80,17 @@ export default function AdminItems() {
         {tabs === 1 ? (
           <AdminCategories setTabs={setTabs} setCategory={setCategory} />
         ) : null}
-        {tabs === 2 ? <AdminMenuItems category={category} /> : null}
-        {tabs === 3 ? <AdminAddCategory /> : null}
-        {tabs === 4 ? <AdminAddMenuItems category={category} /> : null}
+        {tabs === 2 ? (
+          <AdminMenuItems
+            category={category}
+            setMenuItem={setMenuItem}
+            setTabs={setTabs}
+          />
+        ) : null}
+        {tabs === 3 ? <AdminAddCategory category={category} /> : null}
+        {tabs === 4 ? (
+          <AdminAddMenuItems category={category} menuItem={menuItem} />
+        ) : null}
       </div>
     </div>
   );

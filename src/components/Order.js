@@ -14,7 +14,7 @@ export default function Order({
   return (
     <div
       key={transaction.id}
-      className="bg-white pb-2 h-96 flex flex-col justify-between drop-shadow-lg"
+      className="bg-white pb-2 h-72 flex flex-col justify-between drop-shadow-lg"
     >
       <div>
         <div

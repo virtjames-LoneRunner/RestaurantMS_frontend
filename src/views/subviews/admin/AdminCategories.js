@@ -16,7 +16,11 @@ export default function AdminCategories({ setTabs, setCategory }) {
     if (e.target.dataset.id === undefined) {
       return;
     }
-    setCategory({ id: e.target.dataset.id, name: e.target.dataset.name });
+    setCategory({
+      id: e.target.dataset.id,
+      name: e.target.dataset.name,
+      code: e.target.dataset.code,
+    });
     setTabs(2);
   };
 

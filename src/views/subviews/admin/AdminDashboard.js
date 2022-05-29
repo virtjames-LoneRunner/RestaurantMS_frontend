@@ -12,7 +12,7 @@ export default function AdminDashboard() {
         for (let i = 0; i < res.data.length; i++) {
           total_amount += res.data[i].total_amount;
         }
-        setTotal(total_amount);
+        setTotal(total_amount.toFixed(2));
       }
     });
   };

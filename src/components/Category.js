@@ -7,18 +7,25 @@ export default function Category({ handleClick, category }) {
       onClick={handleClick}
       data-id={category.id}
       data-name={category.category}
+      data-code={category.code}
     >
       <div
         className="flex flex-col"
         data-id={category.id}
         data-name={category.category}
+        data-code={category.code}
       >
-        <div data-id={category.id} data-name={category.category}>
+        <div
+          data-id={category.id}
+          data-name={category.category}
+          data-code={category.code}
+        >
           {category.category}
         </div>
         <div
           data-id={category.id}
           data-name={category.category}
+          data-code={category.code}
           className="text-xs"
         >
           Number of Items
