@@ -13,7 +13,7 @@ export default function AdminMenu() {
     navigate("/login");
   };
   return (
-    <div className="flex-col h-full w-1/5 bg-white shadow-md hidden md:flex">
+    <div className="flex-col h-full w-1/5 bg-white border-r hidden md:flex">
       <div className="flex justify-center">
         <img src={hnjlogo} alt="Company Logo" className="p-4 h-28" />
       </div>
@@ -22,8 +22,8 @@ export default function AdminMenu() {
           to="dashboard"
           className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/dashboard")
-              ? "bg-blue-500  text-white shadow-md"
-              : "hover:bg-blue-500 hover:text-white"
+              ? "bg-gray-200 text-gray-800"
+              : "hover:bg-gray-200 text-gray-800"
           }`}
         >
           Dashboard
@@ -32,8 +32,8 @@ export default function AdminMenu() {
           to="transactions"
           className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/transactions")
-              ? "bg-blue-500  text-white shadow-md"
-              : "hover:bg-blue-500 hover:text-white"
+              ? "bg-gray-200 text-gray-800"
+              : "hover:bg-gray-200 text-gray-800"
           }`}
         >
           Transactions
@@ -42,8 +42,8 @@ export default function AdminMenu() {
           to="menu-items"
           className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/menu-items")
-              ? "bg-blue-500  text-white shadow-md"
-              : "hover:bg-blue-500 hover:text-white"
+              ? "bg-gray-200 text-gray-800"
+              : "hover:bg-gray-200 text-gray-800"
           }`}
         >
           Menu Items
@@ -52,8 +52,8 @@ export default function AdminMenu() {
           to="inventory"
           className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/inventory")
-              ? "bg-blue-500  text-white shadow-md"
-              : "hover:bg-blue-500 hover:text-white"
+              ? "bg-gray-200 text-gray-800"
+              : "hover:bg-gray-200 text-gray-800"
           }`}
         >
           Inventory
@@ -62,8 +62,8 @@ export default function AdminMenu() {
           to="reports"
           className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/reports")
-              ? "bg-blue-500  text-white shadow-md"
-              : "hover:bg-blue-500 hover:text-white"
+              ? "bg-gray-200 text-gray-800"
+              : "hover:bg-gray-200 text-gray-800"
           }`}
         >
           Reports
@@ -72,8 +72,8 @@ export default function AdminMenu() {
           to="users"
           className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/users")
-              ? "bg-blue-500  text-white shadow-md"
-              : "hover:bg-blue-500 hover:text-white"
+              ? "bg-gray-200 text-gray-800"
+              : "hover:bg-gray-200 text-gray-800"
           }`}
         >
           Users/Employees
@@ -82,8 +82,8 @@ export default function AdminMenu() {
           to="settings"
           className={`pl-5 lg:pl-10 py-2 ${
             location.pathname.includes("/admin/settings")
-              ? "bg-blue-500  text-white shadow-md"
-              : "hover:bg-blue-500 hover:text-white"
+              ? "bg-gray-200 text-gray-800"
+              : "hover:bg-gray-200 text-gray-800"
           }`}
         >
           Settings
@@ -94,13 +94,13 @@ export default function AdminMenu() {
           onClick={() => {
             handleLogout();
           }}
-          className="pl-5 lg:pl-10 py-2 hover:bg-blue-500 hover:text-white text-left"
+          className="pl-5 lg:pl-10 py-2 hover:bg-gray-200 text-gray-800 text-left"
         >
           Logout
         </button>
       </div>
       {/* <div className="mt-auto mb-2 mx-1">
-        <div className="flex h-12 bg-blue-500  text-white shadow px-2 py-1">
+        <div className="flex h-12 bg-gray-200 text-gray-800 shadow px-2 py-1">
           <div className="flex-none w-1/2 text-left">Name</div>
           <div className="flex-1">Options</div>
         </div>

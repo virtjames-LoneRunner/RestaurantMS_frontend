@@ -32,7 +32,7 @@ export default function Login() {
       });
   };
   return (
-    <div className="bg-blue-500 flex justify-center items-center w-full h-full">
+    <div className="bg-[#6320EE] flex justify-center items-center w-full h-full">
       <form
         onSubmit={handleSubmit(handleLogin)}
         className="flex flex-col justify-center bg-white px-5 pb-5 md:w-1/4 shadow-md space-y-2"
@@ -58,11 +58,18 @@ export default function Login() {
           />
         </div>
         <div>
-          <Button variant="contained" fullWidth type="submit">
+          <Button
+            variant="contained"
+            fullWidth
+            type="submit"
+            style={{ backgroundColor: "#00171F" }}
+          >
             Login
           </Button>
         </div>
-        <a href="/login-code">Login with Code</a>
+        <a href="/login-code" className="text-gray-600">
+          Login with Code
+        </a>
       </form>
     </div>
   );

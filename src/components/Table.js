@@ -4,8 +4,8 @@ export default function Table({ table, setTableNumber, tableNumber }) {
   return (
     <button
       onClick={() => setTableNumber(table)}
-      className={`bg-white h-22 w-22 md:h-40 md:w-40 p-4 shadow-md rounded-lg space-y-3 hover:bg-[#1BF673] ${
-        tableNumber === table ? "bg-[#1BF673]" : ""
+      className={`bg-white h-22 md:h-40 p-4 shadow-md rounded-lg space-y-3 hover:bg-gray-400 ${
+        tableNumber === table ? "bg-gray-400" : ""
       }`}
     >
       <div className="text-xs md:text-base">

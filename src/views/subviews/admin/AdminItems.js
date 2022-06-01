@@ -12,7 +12,7 @@ export default function AdminItems() {
   const [menuItem, setMenuItem] = useState(null);
 
   return (
-    <div className="h-full">
+    <div className="h-full pt-5">
       <div className="flex items-center justify-between pr-5">
         <Breadcrumbs aria-label="breadcrumb">
           <button

@@ -15,14 +15,16 @@ export default function Header({ role, auth }) {
 
   return (
     <div className={`fixed top-0 w-full shadow-md z-50`}>
-      <div className={`flex h-10 bg-blue-500 w-full px-5 ${"justify-between"}`}>
+      <div
+        className={`flex h-10 bg-[#00A7E1] w-full pl-1 pr-2 md:px-5 ${"justify-between"}`}
+      >
         <div
-          className={`flex py-1 space-x-1 md:space-x-2 ${
+          className={`flex py-1 md:space-x-2 text-xs md:text-base ${
             role === "admin" ? "hidden" : ""
           }`}
         >
           <button
-            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md ${
+            className={`px-1 md:px-2 text-white font-medium ${
               auth === "true" ? "" : "hidden"
             }`}
             onClick={() => {
@@ -32,7 +34,7 @@ export default function Header({ role, auth }) {
             Admin View
           </button>
           <button
-            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md  ${
+            className={`px-1 md:px-2 text-white font-medium ${
               role === "chef" ? "hidden" : ""
             }`}
             onClick={() => {
@@ -42,7 +44,7 @@ export default function Header({ role, auth }) {
             Chef View
           </button>
           <button
-            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md  ${
+            className={`px-1 md:px-2 text-white font-medium ${
               role === "non-admin" ? "hidden" : ""
             }`}
             onClick={() => {
@@ -52,7 +54,7 @@ export default function Header({ role, auth }) {
             POS View
           </button>
           <button
-            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md ${
+            className={`px-1 md:px-2 text-white font-medium ${
               role === "non-admin" ? "" : "hidden"
             }`}
           >
@@ -60,12 +62,12 @@ export default function Header({ role, auth }) {
           </button>
         </div>
         <div
-          className={`flex py-1 space-x-1 md:space-x-2 ${
+          className={`flex py-1 md:space-x-2 text-xs md:text-base ${
             role === "admin" ? "" : "hidden"
           }`}
         >
           <button
-            className={`bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md  ${
+            className={`px-1 md:px-2 text-white font-medium ${
               role === "chef" ? "hidden" : ""
             }`}
             onClick={() => {
@@ -75,7 +77,7 @@ export default function Header({ role, auth }) {
             Chef View
           </button>
           <button
-            className="bg-pink-600 hover:bg-pink-700 px-2 text-white font-medium rounded-md shadow-md"
+            className="px-1 md:px-2 text-white font-medium"
             onClick={() => {
               navigate("/dashboard");
             }}
@@ -87,7 +89,7 @@ export default function Header({ role, auth }) {
           <DrawerMenu handleLogout={handleLogout} />
         ) : (
           <button
-            className="text-white"
+            className="text-white text-xs md:text-base"
             onClick={() => {
               handleLogout();
             }}

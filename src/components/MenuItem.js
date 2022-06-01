@@ -7,7 +7,7 @@ export default function MenuItem({
 }) {
   return (
     <button
-      className="bg-white h-28 w-28 md:h-32 md:w-32 lg:h-40 lg:w-40 shadow-md rounded-md disabled:opacity-75"
+      className="bg-gray-200 text-gray-800 h-28 w-full md:h-32 lg:h-40 shadow-md disabled:opacity-75"
       onClick={handleAddOrder}
       disabled={disabled}
       data-id={menuItem.id}
@@ -16,7 +16,7 @@ export default function MenuItem({
       data-unit={menuItem.unit}
     >
       <div
-        className="bg-blue-200 h-full relative rounded-md"
+        className="bg-blue-200 h-full relative"
         data-id={menuItem.id}
         data-item={menuItem.menu_item}
         data-unit_price={menuItem.unit_price}
@@ -43,7 +43,7 @@ export default function MenuItem({
           </div>
         ) : null}
         <div
-          className="absolute bottom-0 bg-white w-full rounded-b-md text-sm md:text-base"
+          className="absolute bottom-0 bg-white w-full text-sm lg:text-base"
           data-id={menuItem.id}
           data-item={menuItem.menu_item}
           data-unit_price={menuItem.unit_price}

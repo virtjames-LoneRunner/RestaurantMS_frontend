@@ -116,9 +116,9 @@ function Chef() {
     getTransactions(dates);
   }, [updateCount, tab, dates]);
   return (
-    <div className="relative bg-gray-200 min-h-screen">
+    <div className="relative bg-[#F6F8FF] min-h-screen">
       <Header role="chef" auth={auth} />
-      <div className="flex pt-10 md:pt-16 px-5 justify-end">
+      <div className="flex pt-12 md:pt-16 px-5 justify-end">
         <div className="flex">
           <div className="relative">
             <button

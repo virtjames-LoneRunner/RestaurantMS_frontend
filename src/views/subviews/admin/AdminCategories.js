@@ -26,7 +26,7 @@ export default function AdminCategories({ setTabs, setCategory }) {
 
   return (
     <div className="flex flex-col pt-5">
-      <div className="flex-auto grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2">
+      <div className="flex-auto grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 pr-5">
         {categories.map((category) => (
           <Category
             handleClick={handleClick}

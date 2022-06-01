@@ -8,7 +8,7 @@ export default function Tables({ setTableNumber, tableNumber }) {
     <>
       <div className="flex justify-start pl-5">
         <button
-          className="bg-blue-500 hover:bg-blue-600 px-2 py-1 text-white rounded-md shadow-md"
+          className="bg-indigo-500 hover:bg-indigo-600 px-2 py-1 text-white rounded-md shadow-md"
           onClick={() => {
             navigate("/dashboard/items");
           }}
@@ -16,7 +16,7 @@ export default function Tables({ setTableNumber, tableNumber }) {
           Back to Categories
         </button>
       </div>
-      <div className="grid grid-cols-4 md:grid-cols-4 gap-2 pt-2 pr-5 pl-5">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 pt-2 pr-5 pl-5">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((table) => (
           <Table
             key={table}

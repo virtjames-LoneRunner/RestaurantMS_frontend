@@ -21,8 +21,8 @@ export default function Categories({ setTabs, setCategory }) {
   };
 
   return (
-    <div className="flex flex-col py-5 px-5">
-      <div className="flex-auto grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2">
+    <div className="flex flex-col py-2 md:py-5 px-2 md:px-5">
+      <div className="flex-auto grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2">
         {categories.map((category) => (
           <Category
             handleClick={handleClick}

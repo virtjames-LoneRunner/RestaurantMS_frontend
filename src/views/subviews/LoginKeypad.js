@@ -9,43 +9,18 @@ export default function LoginKeypad() {
           <TextField fullWidth />
         </div>
         <div className="grid grid-cols-3 gap-1">
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            1
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            2
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            3
-          </button>
-          <button
-            utton
-            className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100"
-          >
-            4
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            5
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            6
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            7
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            8
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            9
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            00
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 px-8 py-2 text-4xl hover:bg-blue-100">
-            0
-          </button>
-          <button className="flex justify-center items-center border border-blue-100 text-4xl hover:bg-blue-100">
+          {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "00"].map(
+            (key) => (
+              <button
+                key={key}
+                className="flex justify-center items-center px-8 py-2 text-4xl bg-blue-200 hover:bg-blue-100"
+              >
+                {key}
+              </button>
+            )
+          )}
+
+          <button className="flex justify-center items-center bg-blue-200 text-4xl hover:bg-blue-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

@@ -9,17 +9,24 @@ export default function LoginCode() {
     navigate("/dashboard/items");
   };
   return (
-    <div className="bg-blue-500 flex justify-center items-center w-full h-full">
-      <div className="flex flex-col justify-center bg-white px-5 py-5 w-1/4 shadow-md space-y-2">
+    <div className="bg-[#6320EE] flex justify-center items-center w-full h-full">
+      <div className="flex flex-col justify-center bg-white px-5 py-5 shadow-md space-y-2">
         <div>
           <LoginKeypad />
         </div>
         <div>
-          <Button variant="contained" fullWidth onClick={handleLogin}>
+          <Button
+            variant="contained"
+            fullWidth
+            onClick={handleLogin}
+            style={{ backgroundColor: "#00171F" }}
+          >
             Login
           </Button>
         </div>
-        <a href="/login">Login with username</a>
+        <a href="/login" className="text-gray-600">
+          Login with username
+        </a>
       </div>
     </div>
   );

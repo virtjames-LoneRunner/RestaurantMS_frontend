@@ -116,7 +116,7 @@ export default function Dashboard() {
 
   const [transactionCode, setTransactionCode] = useState(
     // "HNJ" + date.dd + date.mm + date.yyyy + date.hh + date.min + date.ss
-    "HNJ" + date.min + date.ss
+    "HNJ" + date.hh + date.min + date.ss
   );
   const handleSubmitTransaction = () => {
     if (parseFloat(amountGiven) < parseFloat(total)) {
@@ -153,7 +153,8 @@ export default function Dashboard() {
         const date = formatDate(new Date());
         setTransactionCode(
           // "HNJ" + date.dd + date.mm + date.yyyy + date.hh + date.min + date.ss
-          "HNJ" + date.min + date.ss
+          // "HNJ" + date.min + date.ss
+          "HNJ" + date.hh + date.min + date.ss
         );
       });
   };
@@ -161,7 +162,7 @@ export default function Dashboard() {
   return (
     <div>
       <Header role="non-admin" auth={auth} />
-      <div className="relative flex flex-col-reverse md:flex-row h-screen pt-10 md:pt-0">
+      <div className="relative flex flex-col md:flex-row h-screen pt-10 md:pt-0">
         <OrderSummary
           transactionCode={transactionCode}
           orders={orders}
@@ -177,7 +178,7 @@ export default function Dashboard() {
           setDineType={setDineType}
           tableNumber={tableNumber}
         />
-        <div className="md:w-3/4 pt-5 md:pt-12 pb-5 md:pb-0 bg-[#ebefff] h-4/5 md:h-full overflow-y-auto">
+        <div className="md:w-3/4 pt-5 md:pt-12 pb-5 md:pb-0 bg-[#F6F8FF] h-4/5 md:h-full overflow-y-auto">
           <Routes>
             <Route path="" element={<Navigate replace to="items" />}></Route>
             <Route

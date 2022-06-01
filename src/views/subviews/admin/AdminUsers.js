@@ -16,7 +16,7 @@ export default function AdminUsers() {
     getUsers();
   }, []);
   return (
-    <div className="AdminUsers">
+    <div className="AdminUsers pt-5">
       <div className="flex items-end justify-end mr-4">
         <button
           type="button"

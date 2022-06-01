@@ -46,23 +46,23 @@ export default function OrderSummary({
   };
 
   return (
-    <div className="flex flex-col w-full md:w-1/3 lg:w-1/4 h-full shadow-xl pt-5 md:pt-10 px-2 border-r border-b-2">
+    <div className="flex flex-col w-full md:w-1/3 lg:w-1/4 h-full shadow-xl pt-2 md:pt-10 px-2 md:border-r border-b-2 bg-white text-gray-900">
       <div className="flex-1 flex flex-col">
         <div className="flex border-b py-1 w-full">
-          <p className="font-semibold">Order:</p>
+          <p className="font-semibold text-sm md:text-base">Order:</p>
           <input
-            className="border-b w-full mx-2 text-xs"
+            className="border-b w-full mx-2 text-xs text-gray-700 font-semibold"
             value={transactionCode}
           />
-          <p className="font-semibold">Table:</p>
+          <p className="font-semibold text-sm md:text-base">Table:</p>
           <button
             onClick={handleShowTables}
-            className="w-full ml-2 bg-gray-400 text-white"
+            className="w-full ml-2 bg-gray-100"
           >
             {tableNumber ? tableNumber : "Select"}
           </button>
         </div>
-        <div className="md:flex-1 bg-gray-100 md:overflow-y-auto">
+        <div className="md:flex-1 md:overflow-y-auto">
           {orders.map((order, index) => (
             <OrderItem
               order={order}
@@ -85,25 +85,27 @@ export default function OrderSummary({
             
           </div> */}
           <div className="w-full">
-            <div className="flex justify-between text-sm lg:text-base">
+            <div className="flex justify-between text-xs md:text-sm lg:text-base">
               <div>Subtotal:</div>
               <div>{total.toFixed(2)}</div>
             </div>
-            <div className="flex justify-between text-sm lg:text-base">
+            <div className="flex justify-between text-xs md:text-sm lg:text-base">
               <div>Discount:</div>
               <div>{discount.toFixed(2)}</div>
             </div>
-            <div className="flex justify-between mt-2">
-              <div className="text-lg font-semibold">Total:</div>
-              <div className="text-lg font-semibold">{final.toFixed(2)}</div>
+            <div className="flex justify-between md:mt-2">
+              <div className="md:text-lg font-semibold">Total:</div>
+              <div className="md:text-lg font-semibold">{final.toFixed(2)}</div>
             </div>
           </div>
         </div>
         <div className="flex space-x-2">
           <button
             className={`flex ${
-              dineType === "in" ? `bg-green-500 text-white` : "text-blue-400"
-            } w-1/2 h-10 justify-center items-center border border-blue-400 rounded`}
+              dineType === "in"
+                ? `bg-[#6320EE] text-white`
+                : "bg-gray-200 text-gray-800"
+            } w-1/2 h-10 justify-center items-center rounded`}
             onClick={() => {
               setDineType("in");
             }}
@@ -112,8 +114,10 @@ export default function OrderSummary({
           </button>
           <button
             className={`flex ${
-              dineType === "out" ? `bg-green-500 text-white` : "text-blue-400"
-            } w-1/2 h-10 justify-center items-center border border-blue-400 rounded`}
+              dineType === "out"
+                ? `bg-[#6320EE] text-white`
+                : "bg-gray-200 text-gray-800"
+            } w-1/2 h-10 justify-center items-center rounded`}
             onClick={() => {
               setDineType("out");
             }}
@@ -123,7 +127,7 @@ export default function OrderSummary({
         </div>
         <div className="flex mt-1">
           <button
-            className="flex justify-center items-center w-full h-10 md:h-14 border bg-blue-500 text-white rounded-md shadow-md"
+            className="flex justify-center items-center w-full h-10 md:h-14 bg-[#00171F] text-white rounded-md shadow-md"
             onClick={handleCheckout}
           >
             Pay Now

@@ -19,7 +19,7 @@ export default function Admin() {
 
       <div className="flex h-screen pt-10">
         <AdminMenu />
-        <div className="pt-5 pl-5 h-full w-full bg-blue-100 overflow-y-auto">
+        <div className="pl-5 h-full w-full bg-[#F6F8FF] overflow-y-auto">
           <Routes>
             <Route path="" element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<AdminDashboard />}></Route>

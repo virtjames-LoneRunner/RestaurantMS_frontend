@@ -15,7 +15,7 @@ export default function AdminInventory() {
     });
   }, []);
   return (
-    <div className="pr-5">
+    <div className="pr-5 pt-5">
       {/* <div>Summary</div> */}
       {display === 0 ? (
         <div className="flex justify-end mb-2 space-x-1">

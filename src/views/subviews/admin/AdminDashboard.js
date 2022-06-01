@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminDashboard() {
+  const navigate = useNavigate();
   const [transactions, setTransactions] = useState([]);
   const [total, setTotal] = useState(0);
   const getTransactions = () => {
@@ -22,7 +24,7 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <div className="h-full pb-8 overflow-y-auto">
+    <div className="h-full pt-5 pb-8 overflow-y-auto">
       <p className="text-left text-lg font-semibold">
         Welcome To The Dashboard
       </p>
@@ -148,13 +150,13 @@ export default function AdminDashboard() {
                 This is a list of latest transactions
               </span>
             </div>
-            <div class="">
-              <a
-                href="/admin/transactions"
-                class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2"
-              >
-                View all
-              </a>
+            <div
+              onClick={() => {
+                navigate("/admin/transactions");
+              }}
+              class="cursor-pointer text-xs md:text-base font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2"
+            >
+              View all
             </div>
           </div>
           <div class="flex flex-col mt-5">

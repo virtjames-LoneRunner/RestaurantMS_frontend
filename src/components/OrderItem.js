@@ -21,7 +21,7 @@ export default function OrderItem({
         <div className="flex items-center mr-2">
           <input
             readOnly
-            className="bg-white w-12"
+            className="bg-gray-200 w-12 text-gray-600"
             onFocus={() => {
               setEditIndex({ i: index, id: `${order.id}-input-id` });
               navigate("/dashboard/keypad");
@@ -39,7 +39,7 @@ export default function OrderItem({
           </p>
         </div>
         <div
-          className="flex items-center mr-2 bg-red-500 hover:bg-red-800 my-2 p-1 text-white shadow-md  rounded-full"
+          className="flex items-center mr-2 bg-gray-700 my-2 p-1 text-white shadow-md  rounded-full"
           onClick={handleRemoveItem}
           data-index={index}
         >
