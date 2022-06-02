@@ -62,7 +62,7 @@ export default function OrderSummary({
             {tableNumber ? tableNumber : "Select"}
           </button>
         </div>
-        <div className="md:flex-1 overflow-y-scroll">
+        <div className="overflow-y-scroll h-36 md:h-96">
           {orders.map((order, index) => (
             <OrderItem
               order={order}
