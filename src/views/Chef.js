@@ -26,7 +26,7 @@ function Chef() {
   const [socket, setSocket] = useState("");
 
   useEffect(() => {
-    var socketPath = "ws://" + BASE_URL_WS + "/ws/notifications/";
+    var socketPath = "wss://" + BASE_URL_WS + "/ws/notifications/";
     const chatSocket = new WebSocket(socketPath);
     chatSocket.onmessage = (e) => {
       var data = JSON.parse(e.data);
