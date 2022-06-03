@@ -47,24 +47,24 @@ export default function OrderSummary({
   };
 
   return (
-    <div className="flex flex-col w-full md:w-1/3 lg:w-1/4 h-full shadow-xl pt-2 md:pt-10 px-2 md:border-r border-b-2 bg-white text-gray-900">
-      <div className="flex-1 flex flex-col">
-        <div className="flex border-b py-1 w-full">
-          <p className="font-semibold text-sm md:text-base">Order:</p>
-          <input
-            className="border-b w-full mx-2 text-xs text-gray-700 font-semibold"
-            value={transactionCode}
-          />
-          <p className="font-semibold text-sm md:text-base">Table:</p>
-          <button
-            onClick={handleShowTables}
-            className="w-full ml-2 bg-gray-100 disabled:bg-gray-50 disabled:text-gray-300"
-            disabled={dineType === "out" ? true : false}
-          >
-            {tableNumber ? tableNumber : "Select table"}
-          </button>
-        </div>
-        <div className="overflow-y-scroll h-36 md:h-96">
+    <div className="flex flex-col w-full md:w-1/3 lg:w-1/4 h-5/6 md:h-full shadow-xl pt-2 md:pt-10 px-2 md:border-r border-b-2 bg-white text-gray-900">
+      <div className="flex border-b py-1 w-full sticky top-0 bg-white z-20">
+        <p className="font-semibold text-sm md:text-base">Order:</p>
+        <input
+          className="border-b w-full mx-2 text-xs text-gray-700 font-semibold"
+          value={transactionCode}
+        />
+        <p className="font-semibold text-sm md:text-base">Table:</p>
+        <button
+          onClick={handleShowTables}
+          className="w-full ml-2 bg-gray-100 disabled:bg-gray-50 disabled:text-gray-300"
+          disabled={dineType === "out" ? true : false}
+        >
+          {tableNumber ? tableNumber : "Select table"}
+        </button>
+      </div>
+      <div className="flex-1 flex flex-col overflow-y-auto">
+        <div className="h-36 md:h-96">
           {orders.map((order, index) => (
             <OrderItem
               order={order}
@@ -76,8 +76,8 @@ export default function OrderSummary({
           ))}
         </div>
       </div>
-      <div className="border-t pb-1">
-        <div className="flex space-x-2 mb-2">
+      <div className="border-t">
+        <div className="flex space-x-2">
           {/* <div className="w-1/2">
             <div className="text-left  text-sm lg:text-base">Customer:</div>
             <input
@@ -95,7 +95,7 @@ export default function OrderSummary({
               <div>Discount:</div>
               <div>{discount.toFixed(2)}</div>
             </div>
-            <div className="flex justify-between md:mt-2">
+            <div className="flex justify-between">
               <div className="md:text-lg font-semibold">Total:</div>
               <div className="md:text-lg font-semibold">{final.toFixed(2)}</div>
             </div>

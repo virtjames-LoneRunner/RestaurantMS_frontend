@@ -14,7 +14,7 @@ export default function Order({
   return (
     <div
       key={transaction.id}
-      className="flex-none bg-white pb-2 h-72 w-1/2 md:w-full flex flex-col justify-between drop-shadow-lg"
+      className="flex-none bg-white pb-2 min-h-72 w-1/2 md:w-full flex flex-col justify-between drop-shadow-lg"
     >
       <div>
         <div
@@ -65,6 +65,7 @@ export default function Order({
                     ? "bg-orange-500 text-white"
                     : "bg-green-500 text-white"
                 } px-2 py-1 rounded-md text-xs md:text-base`}
+                disabled={orderitem.status === "Done" ? true : false}
                 onClick={async () => {
                   let transaction = transactions[index];
                   transaction.orderitems_set[i].status =
