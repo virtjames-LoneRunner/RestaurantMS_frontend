@@ -17,6 +17,7 @@ export default function OrderSummary({
   dineType,
   setDineType,
   tableNumber,
+  setTableNumber,
 }) {
   const navigate = useNavigate();
   const handleCheckout = () => {
@@ -57,9 +58,10 @@ export default function OrderSummary({
           <p className="font-semibold text-sm md:text-base">Table:</p>
           <button
             onClick={handleShowTables}
-            className="w-full ml-2 bg-gray-100"
+            className="w-full ml-2 bg-gray-100 disabled:bg-gray-50 disabled:text-gray-300"
+            disabled={dineType === "out" ? true : false}
           >
-            {tableNumber ? tableNumber : "Select"}
+            {tableNumber ? tableNumber : "Select table"}
           </button>
         </div>
         <div className="overflow-y-scroll h-36 md:h-96">
@@ -103,7 +105,7 @@ export default function OrderSummary({
           <button
             className={`flex ${
               dineType === "in"
-                ? `bg-[#6320EE] text-white`
+                ? `bg-[#FF6700] text-white`
                 : "bg-gray-200 text-gray-800"
             } w-1/2 h-10 justify-center items-center rounded`}
             onClick={() => {
@@ -115,11 +117,12 @@ export default function OrderSummary({
           <button
             className={`flex ${
               dineType === "out"
-                ? `bg-[#6320EE] text-white`
+                ? `bg-[#FF6700] text-white`
                 : "bg-gray-200 text-gray-800"
             } w-1/2 h-10 justify-center items-center rounded`}
             onClick={() => {
               setDineType("out");
+              setTableNumber(null);
             }}
           >
             Take-out
@@ -127,7 +130,7 @@ export default function OrderSummary({
         </div>
         <div className="flex mt-1">
           <button
-            className="flex justify-center items-center w-full h-10 md:h-14 bg-[#00171F] text-white rounded-md shadow-md"
+            className="flex justify-center items-center w-full h-10 md:h-14 bg-[#6320EE] text-white rounded-md shadow-md"
             onClick={handleCheckout}
           >
             Pay Now

@@ -91,7 +91,9 @@ export default function Header({ role, auth }) {
           <button
             className="text-white text-xs md:text-base"
             onClick={() => {
-              handleLogout();
+              if (window.confirm("Are you sure you want to log out?")) {
+                handleLogout();
+              }
             }}
           >
             Logout

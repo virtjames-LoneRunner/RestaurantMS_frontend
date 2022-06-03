@@ -177,8 +177,9 @@ export default function Dashboard() {
           dineType={dineType}
           setDineType={setDineType}
           tableNumber={tableNumber}
+          setTableNumber={setTableNumber}
         />
-        <div className="md:w-3/4 pt-5 md:pt-12 pb-5 md:pb-0 bg-[#F6F8FF] h-4/5 md:h-full overflow-y-auto">
+        <div className="md:w-3/4 md:pt-10 pb-5 md:pb-0 bg-[#F6F8FF] h-4/5 md:h-full overflow-y-auto">
           <Routes>
             <Route path="" element={<Navigate replace to="items" />}></Route>
             <Route

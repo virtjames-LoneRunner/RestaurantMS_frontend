@@ -6,10 +6,11 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
 
 export default function DrawerMenu({ handleLogout }) {
+  const navigate = useNavigate();
   const [state, setState] = useState({
     top: false,
     left: false,
@@ -37,40 +38,61 @@ export default function DrawerMenu({ handleLogout }) {
     >
       <p className="pt-5 px-4 font-bold text-xl">Menu</p>
       <List>
-        <ListItem button>
-          <Link to={"dashboard"}>
-            <ListItemText primary={"Dashboard"} />
-          </Link>
+        <ListItem
+          button
+          onClick={() => {
+            navigate("dashboard");
+          }}
+        >
+          <ListItemText primary={"Dashboard"} />
         </ListItem>
-        <ListItem button>
-          <Link to={"transactions"}>
-            <ListItemText primary={"Transactions"} />
-          </Link>
+        <ListItem
+          button
+          onClick={() => {
+            navigate("transactions");
+          }}
+        >
+          <ListItemText primary={"Transactions"} />
         </ListItem>
-        <ListItem button>
-          <Link to={"menu-items"}>
-            <ListItemText primary={"Menu Items"} />
-          </Link>
+        <ListItem
+          button
+          onClick={() => {
+            navigate("menu-items");
+          }}
+        >
+          <ListItemText primary={"Menu Items"} />
         </ListItem>
-        <ListItem button>
-          <Link to={"inventory"}>
-            <ListItemText primary={"Inventory"} />
-          </Link>
+        <ListItem
+          button
+          onClick={() => {
+            navigate("inventory");
+          }}
+        >
+          <ListItemText primary={"Inventory"} />
         </ListItem>
-        <ListItem button>
-          <Link to={"reports"}>
-            <ListItemText primary={"Reports"} />
-          </Link>
+        <ListItem
+          button
+          onClick={() => {
+            navigate("reports");
+          }}
+        >
+          <ListItemText primary={"Reports"} />
         </ListItem>
-        <ListItem button>
-          <Link to={"users"}>
-            <ListItemText primary={"Users/Employees"} />
-          </Link>
+        <ListItem
+          button
+          onClick={() => {
+            navigate("users");
+          }}
+        >
+          <ListItemText primary={"Users/Employees"} />
         </ListItem>
-        <ListItem button>
-          <Link to={"settings"}>
-            <ListItemText primary={"Settings"} />
-          </Link>
+        <ListItem
+          button
+          onClick={() => {
+            navigate("settings");
+          }}
+        >
+          <ListItemText primary={"Settings"} />
         </ListItem>
       </List>
       <Divider />

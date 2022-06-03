@@ -10,10 +10,10 @@ export default function Items({ orders, setOrders }) {
 
   return (
     <div className="h-full">
-      <div className="flex items-center justify-between p-2">
+      <div className="flex items-center justify-between pl-5 py-2 shadow-md sticky top-0 z-20 bg-white">
         <Breadcrumbs aria-label="breadcrumb">
           <button
-            className="text-xs md:text-base bg-gray-300 hover:bg-gray-400 shadow-md py-2 px-1 md:w-24"
+            className="text-xs md:text-base bg-gray-300 hover:bg-gray-400 py-1 px-1 md:w-24"
             underline="hover"
             color="inherit"
             onClick={() => {
@@ -24,7 +24,7 @@ export default function Items({ orders, setOrders }) {
           </button>
           {tabs === 2 ? (
             <button
-              className="text-xs md:text-base bg-gray-300 hover:bg-gray-400 shadow-md py-2 px-1 md:w-24"
+              className="text-xs md:text-base bg-gray-300 hover:bg-gray-400 py-1 px-1 md:w-24"
               underline="hover"
               color="inherit"
             >

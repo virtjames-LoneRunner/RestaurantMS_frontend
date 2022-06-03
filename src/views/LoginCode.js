@@ -9,7 +9,7 @@ export default function LoginCode() {
     navigate("/dashboard/items");
   };
   return (
-    <div className="bg-[#6320EE] flex justify-center items-center w-full h-full">
+    <div className="bg-blue-800 flex justify-center items-center w-full h-full">
       <div className="flex flex-col justify-center bg-white px-5 py-5 shadow-md space-y-2">
         <div>
           <LoginKeypad />
@@ -19,7 +19,7 @@ export default function LoginCode() {
             variant="contained"
             fullWidth
             onClick={handleLogin}
-            style={{ backgroundColor: "#00171F" }}
+            style={{ backgroundColor: "#6320EE" }}
           >
             Login
           </Button>

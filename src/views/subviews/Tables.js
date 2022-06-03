@@ -6,9 +6,9 @@ export default function Tables({ setTableNumber, tableNumber }) {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex justify-start pl-5">
+      <div className="flex justify-start pl-5 py-2 sticky top-0 z-20 bg-white shadow-md">
         <button
-          className="bg-indigo-500 hover:bg-indigo-600 px-2 py-1 text-white rounded-md shadow-md"
+          className="bg-gray-500 hover:bg-gray-600 px-2 py-1 text-white"
           onClick={() => {
             navigate("/dashboard/items");
           }}

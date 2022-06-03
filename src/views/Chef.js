@@ -7,7 +7,7 @@ import Order from "../components/Order";
 import moment from "moment";
 import { BASE_URL_WS } from "../config/config";
 
-import { DateRangePicker } from "react-date-range";
+import { DateRange } from "react-date-range";
 
 function Chef() {
   const [messages, setMessages] = useState([]);
@@ -120,9 +120,17 @@ function Chef() {
       <Header role="chef" auth={auth} />
       <div className="flex pt-12 md:pt-16 px-5 justify-end">
         <div className="flex">
+          <button
+            className="bg-gray-500 text-white px-1 py-1 text-sm"
+            onClick={() => {
+              setTab(tab === 1 ? 2 : 1);
+            }}
+          >
+            {tab === 1 ? "Show Done" : "Back to Orders"}
+          </button>
           <div className="relative">
             <button
-              className="mr-1 block text-white bg-blue-600 hover:bg-blue-700 font-medium text-sm px-5 py-2.5 text-center "
+              className="block text-white bg-blue-600 hover:bg-blue-700 font-medium text-sm px-5 py-1 text-center "
               type="button"
               onClick={() => {
                 setShowPicker(showPicker ? false : true);
@@ -131,11 +139,11 @@ function Chef() {
               Filter
             </button>
             <div
-              className={`absolute right-0 z-20 mr-1 drop-shadow-md ${
+              className={`absolute right-0 z-20 drop-shadow-md ${
                 showPicker ? "" : "hidden"
               }`}
             >
-              <DateRangePicker
+              <DateRange
                 onChange={handleSelectRange}
                 showSelectionPreview={true}
                 moveRangeOnFirstSelection={false}
@@ -147,14 +155,6 @@ function Chef() {
               />
             </div>
           </div>
-          <button
-            className="bg-gray-500 text-white px-2 py-1"
-            onClick={() => {
-              setTab(tab === 1 ? 2 : 1);
-            }}
-          >
-            {tab === 1 ? "Show Done" : "Back to Orders"}
-          </button>
         </div>
       </div>
       <div className="flex flex-col md:flex-row pb-6 h-full">
@@ -164,9 +164,9 @@ function Chef() {
               <h2 className="text-xl font-semibold my-4 text-gray-700">
                 {state}
               </h2>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="flex overflow-x-auto md:grid grid-cols-2 gap-2">
                 {transactions?.map((transaction, index) => {
-                  if (transaction.status == state) {
+                  if (transaction.status === state) {
                     return (
                       <Order
                         masterStatus={"Not Done"}
@@ -188,9 +188,9 @@ function Chef() {
         ) : (
           <div className="w-full px-5">
             <h2 className="text-xl font-semibold my-4 text-gray-700">Done</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+            <div className="flex overflow-x-auto md:grid grid-cols-1 md:grid-cols-4 gap-2">
               {transactions?.map((transaction, index) => {
-                if (transaction.status == "Done") {
+                if (transaction.status === "Done") {
                   return (
                     <Order
                       masterStatus={"Done"}

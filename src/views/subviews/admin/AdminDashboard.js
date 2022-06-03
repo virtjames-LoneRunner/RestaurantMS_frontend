@@ -1,33 +1,85 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { DateRange } from "react-date-range";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
   const [transactions, setTransactions] = useState([]);
   const [total, setTotal] = useState(0);
+
+  // Date Range Picker Default
+  const [showPicker, setShowPicker] = useState(false);
+  const [dates, setDates] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+  const handleSelectRange = (item) => {
+    setDates([item.selection]);
+    // setIsCustom(true);
+  };
   const getTransactions = () => {
     let total_amount = 0;
-    axios.get(`/api/transactions`).then((res) => {
-      if (res.status === 200) {
-        setTransactions(res.data);
-        for (let i = 0; i < res.data.length; i++) {
-          total_amount += res.data[i].total_amount;
+    axios
+      .get(
+        `/api/transactions?start-date=${dates[0].startDate
+          .toISOString()
+          .slice(0, 10)}&end-date=${dates[0].endDate
+          .toISOString()
+          .slice(0, 10)}`
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          setTransactions(res.data);
+          for (let i = 0; i < res.data.length; i++) {
+            total_amount += res.data[i].total_amount;
+          }
+          setTotal(total_amount.toFixed(2));
         }
-        setTotal(total_amount.toFixed(2));
-      }
-    });
+      });
   };
 
   useEffect(() => {
     getTransactions();
-  }, []);
+  }, [dates]);
 
   return (
     <div className="h-full pt-5 pb-8 overflow-y-auto">
-      <p className="text-left text-lg font-semibold">
-        Welcome To The Dashboard
-      </p>
+      <div className="flex justify-between items-center mr-5">
+        <p className="text-left text-lg font-semibold">
+          Welcome To The Dashboard
+        </p>
+        <div className="relative">
+          <button
+            className="block text-white bg-blue-600 hover:bg-blue-700 font-medium text-sm px-4 py-1 text-center "
+            type="button"
+            onClick={() => {
+              setShowPicker(showPicker ? false : true);
+            }}
+          >
+            Filter
+          </button>
+          <div
+            className={`absolute right-0 z-20 drop-shadow-md ${
+              showPicker ? "" : "hidden"
+            }`}
+          >
+            <DateRange
+              onChange={handleSelectRange}
+              showSelectionPreview={true}
+              moveRangeOnFirstSelection={false}
+              showDateDisplay={false}
+              months={1}
+              ranges={dates}
+              maxDate={new Date()}
+              direction="horizontal"
+            />
+          </div>
+        </div>
+      </div>
       <div class="mt-4 w-full pr-5 grid grid-cols-3 gap-2 mb-4">
         <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
           <div class="items-center">

@@ -92,7 +92,9 @@ export default function AdminMenu() {
       <div className="flex flex-col">
         <button
           onClick={() => {
-            handleLogout();
+            if (window.confirm("Are you sure you want to log out?")) {
+              handleLogout();
+            }
           }}
           className="pl-5 lg:pl-10 py-2 hover:bg-gray-200 text-gray-800 text-left"
         >
