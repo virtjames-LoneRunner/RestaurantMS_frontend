@@ -7,8 +7,9 @@ import AdminAddInventory from "./AdminAddInventory";
 export default function AdminInventory() {
   const [inventory, setInventory] = useState([]);
   const [display, setDisplay] = useState(0);
+  const [inventoryData, setInventoryData] = useState({});
   useEffect(() => {
-    axios.get("/api/inventory-items").then((res) => {
+    axios.get("/api/inventory-items/").then((res) => {
       if (res.status === 200) {
         setInventory(res.data);
       }
@@ -42,8 +43,19 @@ export default function AdminInventory() {
           </Button>
         </div>
       ) : null}
-      {display === 0 ? <AdminInventoryTable inventory={inventory} /> : null}
-      {display === 1 ? <AdminAddInventory /> : null}
+      {display === 0 ? (
+        <AdminInventoryTable
+          inventory={inventory}
+          setInventoryData={setInventoryData}
+          setDisplay={setDisplay}
+        />
+      ) : null}
+      {display === 1 ? (
+        <AdminAddInventory
+          inventoryData={inventoryData}
+          setDisplay={setDisplay}
+        />
+      ) : null}
     </div>
   );
 }

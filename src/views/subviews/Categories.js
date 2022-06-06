@@ -5,7 +5,7 @@ import Category from "../../components/Category";
 export default function Categories({ setTabs, setCategory }) {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get("/api/categories").then((res) => {
+    axios.get("/api/categories/").then((res) => {
       if (res.status === 200) {
         setCategories(res.data);
       }

@@ -26,7 +26,6 @@ export default function ComboBox({
       autoHighlight
       onChange={handleChange}
       disablePortal
-      id="search-clinic"
       options={options}
       renderInput={(params) => (
         <TextField

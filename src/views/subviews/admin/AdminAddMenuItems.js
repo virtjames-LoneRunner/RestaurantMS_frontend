@@ -24,7 +24,7 @@ export default function AdminAddMenuItems({ category, menuItem }) {
     if (!menuItem) {
       return;
     }
-    axios.get(`/api/menu-items?id=${menuItem.id}`).then((response) => {
+    axios.get(`/api/menu-items/?id=${menuItem.id}`).then((response) => {
       if (response.status === 200) {
         setItem(response?.data);
         setIngredients(response?.data?.ingredients_set);
@@ -42,7 +42,7 @@ export default function AdminAddMenuItems({ category, menuItem }) {
   }, []);
 
   useEffect(() => {
-    axios.get(`/api/inventory-items`).then((res) => {
+    axios.get(`/api/inventory-items/`).then((res) => {
       if (res.status === 200) {
         setIngredientsOptions(res.data);
       }

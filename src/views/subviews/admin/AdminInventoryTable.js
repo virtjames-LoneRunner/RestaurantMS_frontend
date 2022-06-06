@@ -1,7 +1,11 @@
-import { TextField } from "@mui/material";
 import React from "react";
+import { TextField } from "@mui/material";
 
-export default function AdminInventoryTable({ inventory }) {
+export default function AdminInventoryTable({
+  inventory,
+  setInventoryData,
+  setDisplay,
+}) {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       <table className="w-full text-sm text-left text-gray-500">
@@ -77,12 +81,16 @@ export default function AdminInventoryTable({ inventory }) {
                   : "Available"}
               </td>
               <td className="px-6 py-4 text-right">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 hover:underline"
+                <div
+                  onClick={() => {
+                    setInventoryData(row);
+                    setDisplay(1);
+                    console.log(row);
+                  }}
+                  className="font-medium text-blue-600 hover:underline cursor-pointer"
                 >
                   Edit
-                </a>
+                </div>
               </td>
             </tr>
           ))}

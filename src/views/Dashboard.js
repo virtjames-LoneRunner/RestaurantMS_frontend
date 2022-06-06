@@ -115,8 +115,8 @@ export default function Dashboard() {
   const date = formatDate(new Date());
 
   const [transactionCode, setTransactionCode] = useState(
-    // "HNJ" + date.dd + date.mm + date.yyyy + date.hh + date.min + date.ss
-    "HNJ" + date.hh + date.min + date.ss
+    "HNJ" + date.dd + date.mm + date.yy + date.hh + date.min + date.ss
+    // "HNJ" + date.hh + date.min + date.ss
   );
   const handleSubmitTransaction = () => {
     if (parseFloat(amountGiven) < parseFloat(total)) {
@@ -152,9 +152,9 @@ export default function Dashboard() {
         window.location.replace("/dashboard/items");
         const date = formatDate(new Date());
         setTransactionCode(
-          // "HNJ" + date.dd + date.mm + date.yyyy + date.hh + date.min + date.ss
+          "HNJ" + date.dd + date.mm + date.yy + date.hh + date.min + date.ss
           // "HNJ" + date.min + date.ss
-          "HNJ" + date.hh + date.min + date.ss
+          // "HNJ" + date.hh + date.min + date.ss
         );
       });
   };

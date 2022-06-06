@@ -18,7 +18,7 @@ export default function AdminMenuItems({ category, setMenuItem, setTabs }) {
   // Display Menu Items when category changes (user clicks on category)
   const [menuItems, setMenuItems] = useState([]);
   useEffect(() => {
-    axios.get(`/api/menu-items?category=${category.id}`).then((res) => {
+    axios.get(`/api/menu-items/?category=${category.id}`).then((res) => {
       setMenuItems(res.data);
     });
   }, [category]);

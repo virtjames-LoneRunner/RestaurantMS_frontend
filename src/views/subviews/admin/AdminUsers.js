@@ -5,7 +5,7 @@ export default function AdminUsers() {
   const [users, setUsers] = useState([]);
 
   const getUsers = () => {
-    axios.get(`/api/users`).then((res) => {
+    axios.get(`/api/users/`).then((res) => {
       if (res.status === 200) {
         setUsers(res.data.users);
       }

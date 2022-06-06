@@ -47,7 +47,7 @@ export default function OrderSummary({
   };
 
   return (
-    <div className="flex flex-col w-full md:w-1/3 lg:w-1/4 h-5/6 md:h-full shadow-xl pt-2 md:pt-10 px-2 md:border-r border-b-2 bg-white text-gray-900">
+    <div className="flex flex-col w-full md:w-1/3 lg:w-1/4 h-5/6 md:h-full shadow-xl pt-2 md:pt-10 pb-1 md:pb-0 px-2 md:border-r border-b-2 bg-white text-gray-900">
       <div className="flex border-b py-1 w-full sticky top-0 bg-white z-20">
         <p className="font-semibold text-sm md:text-base">Order:</p>
         <input
